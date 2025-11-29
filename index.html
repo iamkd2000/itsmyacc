@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <title>My Personal Khata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a',
+              },
+              slate: {
+                750: '#2d3748', 
+                850: '#1a202c', 
+                950: '#0f172a',
+              },
+              credit: {
+                500: '#ef4444', 
+                600: '#dc2626',
+                900: '#7f1d1d',
+              },
+              payment: {
+                500: '#22c55e', 
+                600: '#16a34a',
+                900: '#14532d',
+              }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.3s ease-out',
+              'slide-up': 'slideUp 0.3s ease-out',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(100%)' },
+                '100%': { transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 4px; }
+      
+      /* Dark mode date input fix */
+      .dark-date-input::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0",
+    "react": "https://esm.sh/react@18.2.0",
+    "recharts": "https://esm.sh/recharts@2.12.2",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "jspdf-autotable": "https://esm.sh/jspdf-autotable@3.8.2",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-primary-500/30 selection:text-primary-200 overscroll-none">
+    <div id="root"></div>
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        // If the app fails to load, show the error on screen so the user knows why
+        const root = document.getElementById('root');
+        if (root && !root.hasChildNodes()) {
+           root.innerHTML = `
+             <div style="padding: 20px; color: #ef4444; font-family: sans-serif; text-align: center; margin-top: 50px;">
+               <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Something went wrong</h2>
+               <p style="color: #cbd5e1;">${msg}</p>
+               <p style="font-size: 0.8rem; color: #64748b; margin-top: 20px;">Check console for details.</p>
+             </div>
+           `;
+        }
+      };
+    </script>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "My Personal Khata",
+  "description": "A personal money manager to track expenses (where money goes) and lending/borrowing (who has money).",
+  "requestFramePermissions": []
+}
